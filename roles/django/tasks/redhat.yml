@@ -1,0 +1,17 @@
+- name: create /var/www/{{ server_name }}
+  file:
+    path: /var/www/{{ server_name }}
+    state: directory
+
+- name: install venv
+  pip:
+    name: virtualenv
+    virtualenv_python: python3
+
+- name: install django
+  pip:
+    name: django
+    chdir: /var/www/{{ server_name }} 
+
+- name: run django
+  shell: python3 /var/www/{{ server_name }}/manage.py runserver

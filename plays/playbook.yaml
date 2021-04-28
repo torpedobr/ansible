@@ -1,0 +1,8 @@
+---
+- name: Applying geerlingguy.nginx role
+  hosts: all
+  become: true
+  roles:
+    - geerlingguy.nginx
+    - geerlingguy.pip
+    - django  
